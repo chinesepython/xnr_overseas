@@ -31,6 +31,7 @@ def fb_publish(account_name, password, text, tweet_type, xnr_user_no):
 
     return mark
 
+
 # 转发
 def fb_retweet(account_name, password, _id, uid, text, tweet_type, xnr_user_no):
 
@@ -41,3 +42,22 @@ def fb_retweet(account_name, password, _id, uid, text, tweet_type, xnr_user_no):
         print operation.share(uid, _id, text)
     except Exception as e:
         send_email_to('80617252@qq.com', 'somethin occur in your project details is /home/xnr_overseas/xnr/facebookinfo/fb_tweet_func{}'.format(e))
+
+    return True
+
+
+# 评论
+def fb_comment(account_name, password, _id, uid, text, tweet_type, xnr_user_no):
+
+    operation = Operation(account_name,password)
+    print '===============================------------------------------================================-------------------======================-------------------============'
+    print _id, "--------------------------------------------------------" 
+    _id = _id.split('_')[1]
+    print uid, _id
+    #try:
+    try:
+        print operation.comment(uid,_id,text)
+    except Exception as e:
+        send_email_to('80617252@qq.com', 'somethin occur in your project details is /home/xnr_overseas/xnr/facebookinfo/fb_tweet_func{}'.format(e))
+
+    return True
