@@ -14,7 +14,7 @@ def send_email_to(to, error_str):
     msg_root = MIMEMultipart('mixed')
     msg_root['From'] = '80617252@qq.com<80617252@qq.com>'
     msg_root['To'] = to
-    subject = 'some erro in your project need you handle it'
+    subject = 'you will check your coder, this is some info from your problem'
     msg_root['subject'] = Header(subject, 'utf-8')
 
     text_info = error_str

@@ -16,7 +16,7 @@ def fb_publish(account_name, password, text, tweet_type, xnr_user_no):
         print operation.publish(text)
         mark = True
     except Exception as e:
-        send_email_to('80617252@qq.com', 'somethin occur in your project details is /home/xnr_overseas/xnr/facebookinfo/fb_tweet_func{}'.format(e))
+        send_email_to('80617252@qq.com', 'something occur in your project details is /home/xnr_overseas/xnr/facebookinfo/fb_tweet_func{}'.format(e))
     # except:
     #     mark = False
 
@@ -61,3 +61,24 @@ def fb_comment(account_name, password, _id, uid, text, tweet_type, xnr_user_no):
         send_email_to('80617252@qq.com', 'somethin occur in your project details is /home/xnr_overseas/xnr/facebookinfo/fb_tweet_func{}'.format(e))
 
     return True
+
+
+# 喜欢 
+def fb_like(account_name,password, _id, uid):
+    # uid: 原贴用户id
+    operation = Operation(account_name,password)
+    print 'uid', uid
+    #try:
+    _id = _id.split('_')[1]
+    print 'fid', _id
+    operation.like(uid,_id)
+    mark = True
+    # except:
+    #     mark = False
+
+
+    return mark
+
+
+if __name__ == "__main__":
+    pass
